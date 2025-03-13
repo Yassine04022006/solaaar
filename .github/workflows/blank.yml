@@ -9,7 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GH_PAT }}  # Use the secret stored in the repository settings
+          token: ${{ secrets.GH_PAT }}  # Use the token secret
 
       - name: Extract ZIP File
         run: unzip eStartup.zip -d eStartup-extracted
