@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}  # Use the secret stored in the repository settings
 
       - name: Extract ZIP File
         run: unzip eStartup.zip -d eStartup-extracted
@@ -18,4 +20,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add eStartup-extracted
           git commit -m "Extracted eStartup.zip"
-          git push
+          git push origin main
