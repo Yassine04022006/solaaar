@@ -1,0 +1,21 @@
+name: Extract eStartup ZIP
+
+on: push
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Extract ZIP File
+        run: unzip eStartup.zip -d eStartup-extracted
+
+      - name: Commit extracted files
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add eStartup-extracted
+          git commit -m "Extracted eStartup.zip"
+          git push
